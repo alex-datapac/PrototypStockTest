@@ -1,0 +1,216 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.purchaseOrders.controller.DetailPage1_1" xmlns="sap.m">
+    <Page title="Order items" showHeader="true" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
+        <content>
+            <ObjectHeader intro="PO" title="{ID}" icon="sap-icon://order-status" number="" numberUnit="" numberState="None" titleActive="false" backgroundDesign="Transparent" condensed="false" visible="true">
+                <attributes/>
+                <statuses/>
+                <markers/>
+            </ObjectHeader>
+            <IconTabBar expandable="true" expanded="false" applyContentPadding="false" backgroundDesign="Solid" upperCase="true" visible="true" selectedKey="Ok">
+                <items>
+                    <IconTabFilter icon="sap-icon://documents" iconColor="Default" text="Order" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+                        <content>
+                            <Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" items="{path:'ToPurchaseOrderItem', templateShareable:true, parameters:{expand:'RelationName'}}">
+                                <infoToolbar>
+                                    <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                        <content>
+                                            <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </content>
+                                    </Toolbar>
+                                </infoToolbar>
+                                <headerToolbar/>
+                                <columns>
+                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Product" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Quantity" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <header>
+                                            <Text text="Price" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                        </header>
+                                        <footer/>
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem type="Active">
+                                        <cells>
+                                            <ObjectIdentifier title="{RelationName/Name}" text="{RelationName/ID}" titleActive="false" visible="true"/>
+                                            <ObjectIdentifier title="{path: 'Quantity', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" text="" titleActive="false" visible="true"/>
+                                            <ObjectNumber number="{path: 'RelationName/Price', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit="{RelationName/Currency}" emphasized="true" state="None"/>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </content>
+                    </IconTabFilter>
+                    <IconTabSeparator icon="" iconDensityAware="false"/>
+                    <IconTabFilter icon="sap-icon://receipt" iconColor="Default" text="Receipt" count="1" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+                        <content>
+                            <OverflowToolbar width="auto" height="46px" design="Solid" visible="true" enabled="true">
+                                <content>
+                                    <OverflowToolbarButton text="Action" type="Default" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                                </content>
+                            </OverflowToolbar>
+                            <Panel height="auto" width="100%" headerText="Receipt 1 - 24.3.32020" expandable="true" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                                <content>
+                                    <Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" items="{path:'/GoodsReceiptItemSet', templateShareable:true, parameters:{expand:'ToProduct,ToStock'}}">
+                                        <infoToolbar>
+                                            <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                                <content>
+                                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </content>
+                                            </Toolbar>
+                                        </infoToolbar>
+                                        <headerToolbar>
+                                            <OverflowToolbar width="auto" height="auto" design="Auto" visible="true" enabled="true">
+                                                <content>
+                                                    <SearchField value="" placeholder="Search" showSearchButton="true" visible="true" width="auto" class="sapUiTinyMargin"/>
+                                                    <ToggleButton pressed="false" text="" icon="sap-icon://bar-code" iconFirst="true" width="auto" enabled="true" visible="true"/>
+                                                </content>
+                                            </OverflowToolbar>
+                                        </headerToolbar>
+                                        <columns>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Product" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Received quantity" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Stock" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Stock type" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <ObjectIdentifier title="{ToProduct/Name}" text="{ToProduct/ID}" titleActive="false" visible="true"/>
+                                                    <ObjectIdentifier title="{path: 'DeliveredQuantity', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" text="" titleActive="false" visible="true"/>
+                                                    <Text text="{ToStock/ID}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <ObjectNumber number="{ToStock/StockType}" unit="" emphasized="true" state="None"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                                    <OverflowToolbar width="auto" height="46px" design="Solid" visible="true" enabled="true">
+                                        <content>
+                                            <OverflowToolbarButton text="Action" type="Default" icon="sap-icon://print" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                                            <ToolbarSpacer width=""/>
+                                            <Button text="Post" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+                                            <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                                        </content>
+                                    </OverflowToolbar>
+                                </content>
+                            </Panel>
+                        </content>
+                    </IconTabFilter>
+                    <IconTabSeparator icon="" iconDensityAware="false"/>
+                    <IconTabFilter icon="sap-icon://notes" iconColor="Default" text="DN" count="1" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+                        <content>
+                            <ToolbarSpacer width=""/>
+                            <OverflowToolbar width="auto" height="46px" design="Solid" visible="true" enabled="true">
+                                <content>
+                                    <OverflowToolbarButton text="Action" type="Default" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                                </content>
+                            </OverflowToolbar>
+                            <Panel height="auto" width="100%" headerText="DN 1- 24.3.2020" expandable="true" expanded="true" expandAnimation="true" backgroundDesign="Solid">
+                                <content>
+                                    <Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" items="{path:'/DeliveryNoteItemSet', templateShareable:true, parameters:{expand:'ToProduct'}}">
+                                        <infoToolbar>
+                                            <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                                <content>
+                                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </content>
+                                            </Toolbar>
+                                        </infoToolbar>
+                                        <headerToolbar>
+                                            <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+                                                <content>
+                                                    <SearchField placeholder="Search" showSearchButton="true" visible="true" width="auto"/>
+                                                </content>
+                                            </OverflowToolbar>
+                                        </headerToolbar>
+                                        <columns>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Product" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Total quantity" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Total package" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Amount in Package" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem type="Active" press="_onRowPress">
+                                                <cells>
+                                                    <ObjectIdentifier title="{ToProduct/Name}" text="{ToProduct/ID}" titleActive="false" visible="true"/>
+                                                    <ObjectNumber number="{path: 'TotalQuantity', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit="" emphasized="true" state="None"/>
+                                                    <ObjectNumber number="{path: 'TotalPackage', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit="" emphasized="true" state="None"/>
+                                                    <ObjectNumber number="{path: 'AmountInPackage', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" unit="" emphasized="true" state="None"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                                    <UploadCollection uploadEnabled="false" numberOfAttachmentsText="" showSeparators="All" noDataText="The UploadCollection coming from BUILD cannot work in WebIDE without additional work" visible="true" maximumFileSize="10" mimeType="image/jpeg,image/gif,image/png,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple="false" uploadUrl="" sameFilenameAllowed="false" mode="SingleSelectMaster" uploadComplete="_onUploadCollectionUploadComplete" change="_onUploadCollectionChange" typeMissmatch="_onUploadCollectionTypeMissmatch" fileSizeExceed="_onUploadCollectionFileSizeExceed">
+                                        <headerParameters/>
+                                        <items/>
+                                        <parameters/>
+                                        <toolbar/>
+                                    </UploadCollection>
+                                    <OverflowToolbar width="auto" height="46px" design="Solid" visible="true" enabled="true">
+                                        <content>
+                                            <ToolbarSpacer width=""/>
+                                            <Button text="Close" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                                            <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                                        </content>
+                                    </OverflowToolbar>
+                                </content>
+                            </Panel>
+                        </content>
+                    </IconTabFilter>
+                </items>
+                <content/>
+            </IconTabBar>
+        </content>
+        <footer/>
+        <headerContent/>
+    </Page>
+</mvc:View>

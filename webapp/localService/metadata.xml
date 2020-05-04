@@ -1,0 +1,377 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="079dea30fa953de4133b9d39" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="079dea30fa953de4133b9d39_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="PurchaseOrderSet" EntityType="079dea30fa953de4133b9d39.PurchaseOrder" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="PurchaseOrderToPurchaseOrderItemPurchaseOrderItem" Association="079dea30fa953de4133b9d39.PurchaseOrderToPurchaseOrderItemPurchaseOrderItem" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="PurchaseOrderSet" Role="FromRole_PurchaseOrderToPurchaseOrderItemPurchaseOrderItem"/>
+                    <End EntitySet="PurchaseOrderItemSet" Role="ToRole_PurchaseOrderToPurchaseOrderItemPurchaseOrderItem"/>
+                </AssociationSet>
+                <AssociationSet Name="PurchaseOrderToSeSServiceStation" Association="079dea30fa953de4133b9d39.PurchaseOrderToSeSServiceStation" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="PurchaseOrderSet" Role="FromRole_PurchaseOrderToSeSServiceStation"/>
+                    <End EntitySet="ServiceStationSet" Role="ToRole_PurchaseOrderToSeSServiceStation"/>
+                </AssociationSet>
+                <AssociationSet Name="PurchaseOrderToGoodsReceiptPurchaseOrderGoodsReceipt" Association="079dea30fa953de4133b9d39.PurchaseOrderToGoodsReceiptPurchaseOrderGoodsReceipt" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="PurchaseOrderSet" Role="FromRole_PurchaseOrderToGoodsReceiptPurchaseOrderGoodsReceipt"/>
+                    <End EntitySet="PurchaseOrderGoodsReceiptSet" Role="ToRole_PurchaseOrderToGoodsReceiptPurchaseOrderGoodsReceipt"/>
+                </AssociationSet>
+                <AssociationSet Name="PurchaseOrderToDeliveryNotePurchaseOrderDeliveryNote" Association="079dea30fa953de4133b9d39.PurchaseOrderToDeliveryNotePurchaseOrderDeliveryNote" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="PurchaseOrderSet" Role="FromRole_PurchaseOrderToDeliveryNotePurchaseOrderDeliveryNote"/>
+                    <End EntitySet="PurchaseOrderDeliveryNoteSet" Role="ToRole_PurchaseOrderToDeliveryNotePurchaseOrderDeliveryNote"/>
+                </AssociationSet>
+                <EntitySet Name="PurchaseOrderItemSet" EntityType="079dea30fa953de4133b9d39.PurchaseOrderItem" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="PurchaseOrderItemRelationNameProduct" Association="079dea30fa953de4133b9d39.PurchaseOrderItemRelationNameProduct" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="PurchaseOrderItemSet" Role="FromRole_PurchaseOrderItemRelationNameProduct"/>
+                    <End EntitySet="ProductSet" Role="ToRole_PurchaseOrderItemRelationNameProduct"/>
+                </AssociationSet>
+                <EntitySet Name="ProductSet" EntityType="079dea30fa953de4133b9d39.Product" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="ProductFromProductToSupplierProductSupplier" Association="079dea30fa953de4133b9d39.ProductFromProductToSupplierProductSupplier" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="ProductSet" Role="FromRole_ProductFromProductToSupplierProductSupplier"/>
+                    <End EntitySet="ProductSupplierSet" Role="ToRole_ProductFromProductToSupplierProductSupplier"/>
+                </AssociationSet>
+                <EntitySet Name="ServiceStationSet" EntityType="079dea30fa953de4133b9d39.ServiceStation" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="SupplierSet" EntityType="079dea30fa953de4133b9d39.Supplier" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="GoodsReceiptSet" EntityType="079dea30fa953de4133b9d39.GoodsReceipt" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="GoodsReceiptToItemGoodsReceiptItem" Association="079dea30fa953de4133b9d39.GoodsReceiptToItemGoodsReceiptItem" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="GoodsReceiptSet" Role="FromRole_GoodsReceiptToItemGoodsReceiptItem"/>
+                    <End EntitySet="GoodsReceiptItemSet" Role="ToRole_GoodsReceiptToItemGoodsReceiptItem"/>
+                </AssociationSet>
+                <EntitySet Name="GoodsReceiptItemSet" EntityType="079dea30fa953de4133b9d39.GoodsReceiptItem" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="GoodsReceiptItemToStockStock" Association="079dea30fa953de4133b9d39.GoodsReceiptItemToStockStock" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="GoodsReceiptItemSet" Role="FromRole_GoodsReceiptItemToStockStock"/>
+                    <End EntitySet="StockSet" Role="ToRole_GoodsReceiptItemToStockStock"/>
+                </AssociationSet>
+                <AssociationSet Name="GoodsReceiptItemToProductProduct" Association="079dea30fa953de4133b9d39.GoodsReceiptItemToProductProduct" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="GoodsReceiptItemSet" Role="FromRole_GoodsReceiptItemToProductProduct"/>
+                    <End EntitySet="ProductSet" Role="ToRole_GoodsReceiptItemToProductProduct"/>
+                </AssociationSet>
+                <EntitySet Name="PurchaseOrderGoodsReceiptSet" EntityType="079dea30fa953de4133b9d39.PurchaseOrderGoodsReceipt" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="PurchaseOrderGoodsReceiptToGoodsReceiptGoodsReceipt" Association="079dea30fa953de4133b9d39.PurchaseOrderGoodsReceiptToGoodsReceiptGoodsReceipt" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="PurchaseOrderGoodsReceiptSet" Role="FromRole_PurchaseOrderGoodsReceiptToGoodsReceiptGoodsReceipt"/>
+                    <End EntitySet="GoodsReceiptSet" Role="ToRole_PurchaseOrderGoodsReceiptToGoodsReceiptGoodsReceipt"/>
+                </AssociationSet>
+                <EntitySet Name="PurchaseOrderDeliveryNoteSet" EntityType="079dea30fa953de4133b9d39.PurchaseOrderDeliveryNote" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="PurchaseOrderDeliveryNoteToDeliveryNoteDeliveryNote" Association="079dea30fa953de4133b9d39.PurchaseOrderDeliveryNoteToDeliveryNoteDeliveryNote" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="PurchaseOrderDeliveryNoteSet" Role="FromRole_PurchaseOrderDeliveryNoteToDeliveryNoteDeliveryNote"/>
+                    <End EntitySet="DeliveryNoteSet" Role="ToRole_PurchaseOrderDeliveryNoteToDeliveryNoteDeliveryNote"/>
+                </AssociationSet>
+                <EntitySet Name="ProductSupplierSet" EntityType="079dea30fa953de4133b9d39.ProductSupplier" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="ProductSupplierFromProductSupplierToSupplierSupplier" Association="079dea30fa953de4133b9d39.ProductSupplierFromProductSupplierToSupplierSupplier" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="ProductSupplierSet" Role="FromRole_ProductSupplierFromProductSupplierToSupplierSupplier"/>
+                    <End EntitySet="SupplierSet" Role="ToRole_ProductSupplierFromProductSupplierToSupplierSupplier"/>
+                </AssociationSet>
+                <EntitySet Name="DeliveryNoteSet" EntityType="079dea30fa953de4133b9d39.DeliveryNote" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="DeliveryNoteToItemDeliveryNoteItem" Association="079dea30fa953de4133b9d39.DeliveryNoteToItemDeliveryNoteItem" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="DeliveryNoteSet" Role="FromRole_DeliveryNoteToItemDeliveryNoteItem"/>
+                    <End EntitySet="DeliveryNoteItemSet" Role="ToRole_DeliveryNoteToItemDeliveryNoteItem"/>
+                </AssociationSet>
+                <EntitySet Name="DeliveryNoteItemSet" EntityType="079dea30fa953de4133b9d39.DeliveryNoteItem" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="DeliveryNoteItemToProductProduct" Association="079dea30fa953de4133b9d39.DeliveryNoteItemToProductProduct" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="DeliveryNoteItemSet" Role="FromRole_DeliveryNoteItemToProductProduct"/>
+                    <End EntitySet="ProductSet" Role="ToRole_DeliveryNoteItemToProductProduct"/>
+                </AssociationSet>
+                <EntitySet Name="StockSet" EntityType="079dea30fa953de4133b9d39.Stock" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+            </EntityContainer>
+            <EntityType Name="PurchaseOrder">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Plant"/>
+                <Property Name="Status" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Status"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="DocumentData"/>
+                <Property Name="NumberOfItems" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:calculated="{&quot;calculation&quot;:&quot;[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityId\&quot;:\&quot;PurchaseOrderItem\&quot;,\&quot;navPropId\&quot;:\&quot;ToPurchaseOrderItem\&quot;,\&quot;navPropOp\&quot;:\&quot;count\&quot;,\&quot;propertyId\&quot;:\&quot;ID\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;propertyType\&quot;:\&quot;String\&quot;,\&quot;isNewLine\&quot;:false,\&quot;id\&quot;:1,\&quot;computedType\&quot;:\&quot;number\&quot;,\&quot;navPropName\&quot;:\&quot;ToPurchaseOrderItem\&quot;,\&quot;entityName\&quot;:\&quot;PurchaseOrderItem\&quot;,\&quot;propertyName\&quot;:\&quot;ID\&quot;}]&quot;,&quot;inputProperties&quot;:[{&quot;_id&quot;:&quot;5e7b49a42b3b306351ed7f60&quot;,&quot;navPropId&quot;:&quot;ToPurchaseOrderItem&quot;,&quot;entityId&quot;:&quot;PurchaseOrderItem&quot;,&quot;propertyId&quot;:&quot;ID&quot;}]}" sap:label="NumberOfItems"/>
+                <Property Name="___FK_a0ee1cfcd3bc30e5133e5076_00004" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_a0ee1cfcd3bc30e5133e5076_00004"/>
+                <NavigationProperty Name="ToPurchaseOrderItem" Relationship="079dea30fa953de4133b9d39.PurchaseOrderToPurchaseOrderItemPurchaseOrderItem" FromRole="FromRole_PurchaseOrderToPurchaseOrderItemPurchaseOrderItem" ToRole="ToRole_PurchaseOrderToPurchaseOrderItemPurchaseOrderItem"/>
+                <NavigationProperty Name="ToSeS" Relationship="079dea30fa953de4133b9d39.PurchaseOrderToSeSServiceStation" FromRole="FromRole_PurchaseOrderToSeSServiceStation" ToRole="ToRole_PurchaseOrderToSeSServiceStation"/>
+                <NavigationProperty Name="ToGoodsReceipt" Relationship="079dea30fa953de4133b9d39.PurchaseOrderToGoodsReceiptPurchaseOrderGoodsReceipt" FromRole="FromRole_PurchaseOrderToGoodsReceiptPurchaseOrderGoodsReceipt" ToRole="ToRole_PurchaseOrderToGoodsReceiptPurchaseOrderGoodsReceipt"/>
+                <NavigationProperty Name="ToDeliveryNote" Relationship="079dea30fa953de4133b9d39.PurchaseOrderToDeliveryNotePurchaseOrderDeliveryNote" FromRole="FromRole_PurchaseOrderToDeliveryNotePurchaseOrderDeliveryNote" ToRole="ToRole_PurchaseOrderToDeliveryNotePurchaseOrderDeliveryNote"/>
+            </EntityType>
+            <Association Name="PurchaseOrderToPurchaseOrderItemPurchaseOrderItem">
+                <End Type="079dea30fa953de4133b9d39.PurchaseOrder" Multiplicity="1" Role="FromRole_PurchaseOrderToPurchaseOrderItemPurchaseOrderItem"/>
+                <End Type="079dea30fa953de4133b9d39.PurchaseOrderItem" Multiplicity="*" Role="ToRole_PurchaseOrderToPurchaseOrderItemPurchaseOrderItem"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_PurchaseOrderToPurchaseOrderItemPurchaseOrderItem">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_PurchaseOrderToPurchaseOrderItemPurchaseOrderItem">
+                        <PropertyRef Name="___FK_3275ca33044bf7c7133e0547_00033"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PurchaseOrderToSeSServiceStation">
+                <End Type="079dea30fa953de4133b9d39.PurchaseOrder" Multiplicity="1" Role="FromRole_PurchaseOrderToSeSServiceStation"/>
+                <End Type="079dea30fa953de4133b9d39.ServiceStation" Multiplicity="1" Role="ToRole_PurchaseOrderToSeSServiceStation"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_PurchaseOrderToSeSServiceStation">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_PurchaseOrderToSeSServiceStation">
+                        <PropertyRef Name="___FK_a0ee1cfcd3bc30e5133e5076_00004"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PurchaseOrderToGoodsReceiptPurchaseOrderGoodsReceipt">
+                <End Type="079dea30fa953de4133b9d39.PurchaseOrder" Multiplicity="1" Role="FromRole_PurchaseOrderToGoodsReceiptPurchaseOrderGoodsReceipt"/>
+                <End Type="079dea30fa953de4133b9d39.PurchaseOrderGoodsReceipt" Multiplicity="*" Role="ToRole_PurchaseOrderToGoodsReceiptPurchaseOrderGoodsReceipt"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_PurchaseOrderToGoodsReceiptPurchaseOrderGoodsReceipt">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_PurchaseOrderToGoodsReceiptPurchaseOrderGoodsReceipt">
+                        <PropertyRef Name="___FK_4c64dc831ce8b064133f7a21_00012"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PurchaseOrderToDeliveryNotePurchaseOrderDeliveryNote">
+                <End Type="079dea30fa953de4133b9d39.PurchaseOrder" Multiplicity="1" Role="FromRole_PurchaseOrderToDeliveryNotePurchaseOrderDeliveryNote"/>
+                <End Type="079dea30fa953de4133b9d39.PurchaseOrderDeliveryNote" Multiplicity="*" Role="ToRole_PurchaseOrderToDeliveryNotePurchaseOrderDeliveryNote"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_PurchaseOrderToDeliveryNotePurchaseOrderDeliveryNote">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_PurchaseOrderToDeliveryNotePurchaseOrderDeliveryNote">
+                        <PropertyRef Name="___FK_4c64dc831ce8b064133f7a21_00018"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="PurchaseOrderItem" sap:pdm-semantics="business-data">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Quantity" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Quantity"/>
+                <Property Name="___FK_3275ca33044bf7c7133e0547_00033" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_3275ca33044bf7c7133e0547_00033"/>
+                <Property Name="___FK_a0ee1cfcd3bc30e5133e5076_00006" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_a0ee1cfcd3bc30e5133e5076_00006"/>
+                <NavigationProperty Name="RelationName" Relationship="079dea30fa953de4133b9d39.PurchaseOrderItemRelationNameProduct" FromRole="FromRole_PurchaseOrderItemRelationNameProduct" ToRole="ToRole_PurchaseOrderItemRelationNameProduct"/>
+            </EntityType>
+            <Association Name="PurchaseOrderItemRelationNameProduct">
+                <End Type="079dea30fa953de4133b9d39.PurchaseOrderItem" Multiplicity="1" Role="FromRole_PurchaseOrderItemRelationNameProduct"/>
+                <End Type="079dea30fa953de4133b9d39.Product" Multiplicity="1" Role="ToRole_PurchaseOrderItemRelationNameProduct"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_PurchaseOrderItemRelationNameProduct">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_PurchaseOrderItemRelationNameProduct">
+                        <PropertyRef Name="___FK_a0ee1cfcd3bc30e5133e5076_00006"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Product" sap:pdm-semantics="business-data">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Name"/>
+                <Property Name="Price" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Price"/>
+                <Property Name="Currency" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Currency"/>
+                <NavigationProperty Name="FromProductToSupplier" Relationship="079dea30fa953de4133b9d39.ProductFromProductToSupplierProductSupplier" FromRole="FromRole_ProductFromProductToSupplierProductSupplier" ToRole="ToRole_ProductFromProductToSupplierProductSupplier"/>
+            </EntityType>
+            <Association Name="ProductFromProductToSupplierProductSupplier">
+                <End Type="079dea30fa953de4133b9d39.Product" Multiplicity="1" Role="FromRole_ProductFromProductToSupplierProductSupplier"/>
+                <End Type="079dea30fa953de4133b9d39.ProductSupplier" Multiplicity="*" Role="ToRole_ProductFromProductToSupplierProductSupplier"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ProductFromProductToSupplierProductSupplier">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ProductFromProductToSupplierProductSupplier">
+                        <PropertyRef Name="___FK_4c64dc831ce8b064133f7a21_00024"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="ServiceStation" sap:pdm-semantics="business-data">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Name"/>
+                <Property Name="City" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="City"/>
+            </EntityType>
+            <EntityType Name="Supplier">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="SupplierName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="SupplierName"/>
+                <Property Name="EmailAddress" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="EmailAddress"/>
+            </EntityType>
+            <EntityType Name="GoodsReceipt">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="DeliveredQuantity"/>
+                <Property Name="Status" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Status"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="CreationDate"/>
+                <NavigationProperty Name="ToItem" Relationship="079dea30fa953de4133b9d39.GoodsReceiptToItemGoodsReceiptItem" FromRole="FromRole_GoodsReceiptToItemGoodsReceiptItem" ToRole="ToRole_GoodsReceiptToItemGoodsReceiptItem"/>
+            </EntityType>
+            <Association Name="GoodsReceiptToItemGoodsReceiptItem">
+                <End Type="079dea30fa953de4133b9d39.GoodsReceipt" Multiplicity="1" Role="FromRole_GoodsReceiptToItemGoodsReceiptItem"/>
+                <End Type="079dea30fa953de4133b9d39.GoodsReceiptItem" Multiplicity="*" Role="ToRole_GoodsReceiptToItemGoodsReceiptItem"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_GoodsReceiptToItemGoodsReceiptItem">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_GoodsReceiptToItemGoodsReceiptItem">
+                        <PropertyRef Name="___FK_4c64dc831ce8b064133f7a21_00016"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="GoodsReceiptItem">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="___FK_4c64dc831ce8b064133f7a21_00016" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_4c64dc831ce8b064133f7a21_00016"/>
+                <Property Name="___FK_4c64dc831ce8b064133f7a21_00041" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_4c64dc831ce8b064133f7a21_00041"/>
+                <Property Name="DeliveredQuantity" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="StockId"/>
+                <Property Name="___FK_4c64dc831ce8b064133f7a21_00050" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_4c64dc831ce8b064133f7a21_00050"/>
+                <NavigationProperty Name="ToStock" Relationship="079dea30fa953de4133b9d39.GoodsReceiptItemToStockStock" FromRole="FromRole_GoodsReceiptItemToStockStock" ToRole="ToRole_GoodsReceiptItemToStockStock"/>
+                <NavigationProperty Name="ToProduct" Relationship="079dea30fa953de4133b9d39.GoodsReceiptItemToProductProduct" FromRole="FromRole_GoodsReceiptItemToProductProduct" ToRole="ToRole_GoodsReceiptItemToProductProduct"/>
+            </EntityType>
+            <Association Name="GoodsReceiptItemToStockStock">
+                <End Type="079dea30fa953de4133b9d39.GoodsReceiptItem" Multiplicity="1" Role="FromRole_GoodsReceiptItemToStockStock"/>
+                <End Type="079dea30fa953de4133b9d39.Stock" Multiplicity="1" Role="ToRole_GoodsReceiptItemToStockStock"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_GoodsReceiptItemToStockStock">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_GoodsReceiptItemToStockStock">
+                        <PropertyRef Name="___FK_4c64dc831ce8b064133f7a21_00041"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="GoodsReceiptItemToProductProduct">
+                <End Type="079dea30fa953de4133b9d39.GoodsReceiptItem" Multiplicity="1" Role="FromRole_GoodsReceiptItemToProductProduct"/>
+                <End Type="079dea30fa953de4133b9d39.Product" Multiplicity="1" Role="ToRole_GoodsReceiptItemToProductProduct"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_GoodsReceiptItemToProductProduct">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_GoodsReceiptItemToProductProduct">
+                        <PropertyRef Name="___FK_4c64dc831ce8b064133f7a21_00050"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="PurchaseOrderGoodsReceipt" sap:pdm-semantics="business-data">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="___FK_4c64dc831ce8b064133f7a21_00012" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_4c64dc831ce8b064133f7a21_00012"/>
+                <Property Name="___FK_4c64dc831ce8b064133f7a21_00014" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_4c64dc831ce8b064133f7a21_00014"/>
+                <NavigationProperty Name="ToGoodsReceipt" Relationship="079dea30fa953de4133b9d39.PurchaseOrderGoodsReceiptToGoodsReceiptGoodsReceipt" FromRole="FromRole_PurchaseOrderGoodsReceiptToGoodsReceiptGoodsReceipt" ToRole="ToRole_PurchaseOrderGoodsReceiptToGoodsReceiptGoodsReceipt"/>
+            </EntityType>
+            <Association Name="PurchaseOrderGoodsReceiptToGoodsReceiptGoodsReceipt">
+                <End Type="079dea30fa953de4133b9d39.PurchaseOrderGoodsReceipt" Multiplicity="1" Role="FromRole_PurchaseOrderGoodsReceiptToGoodsReceiptGoodsReceipt"/>
+                <End Type="079dea30fa953de4133b9d39.GoodsReceipt" Multiplicity="1" Role="ToRole_PurchaseOrderGoodsReceiptToGoodsReceiptGoodsReceipt"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_PurchaseOrderGoodsReceiptToGoodsReceiptGoodsReceipt">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_PurchaseOrderGoodsReceiptToGoodsReceiptGoodsReceipt">
+                        <PropertyRef Name="___FK_4c64dc831ce8b064133f7a21_00014"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="PurchaseOrderDeliveryNote" sap:pdm-semantics="business-data">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="PurchaseOrderId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="DefaultName"/>
+                <Property Name="DeliveryNoteId" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="DeliveryNoteId"/>
+                <Property Name="___FK_4c64dc831ce8b064133f7a21_00018" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_4c64dc831ce8b064133f7a21_00018"/>
+                <Property Name="___FK_4c64dc831ce8b064133f7a21_00034" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_4c64dc831ce8b064133f7a21_00034"/>
+                <NavigationProperty Name="ToDeliveryNote" Relationship="079dea30fa953de4133b9d39.PurchaseOrderDeliveryNoteToDeliveryNoteDeliveryNote" FromRole="FromRole_PurchaseOrderDeliveryNoteToDeliveryNoteDeliveryNote" ToRole="ToRole_PurchaseOrderDeliveryNoteToDeliveryNoteDeliveryNote"/>
+            </EntityType>
+            <Association Name="PurchaseOrderDeliveryNoteToDeliveryNoteDeliveryNote">
+                <End Type="079dea30fa953de4133b9d39.PurchaseOrderDeliveryNote" Multiplicity="1" Role="FromRole_PurchaseOrderDeliveryNoteToDeliveryNoteDeliveryNote"/>
+                <End Type="079dea30fa953de4133b9d39.DeliveryNote" Multiplicity="1" Role="ToRole_PurchaseOrderDeliveryNoteToDeliveryNoteDeliveryNote"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_PurchaseOrderDeliveryNoteToDeliveryNoteDeliveryNote">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_PurchaseOrderDeliveryNoteToDeliveryNoteDeliveryNote">
+                        <PropertyRef Name="___FK_4c64dc831ce8b064133f7a21_00034"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="ProductSupplier" sap:pdm-semantics="business-data">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="___FK_4c64dc831ce8b064133f7a21_00024" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_4c64dc831ce8b064133f7a21_00024"/>
+                <Property Name="___FK_4c64dc831ce8b064133f7a21_00028" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_4c64dc831ce8b064133f7a21_00028"/>
+                <NavigationProperty Name="FromProductSupplierToSupplier" Relationship="079dea30fa953de4133b9d39.ProductSupplierFromProductSupplierToSupplierSupplier" FromRole="FromRole_ProductSupplierFromProductSupplierToSupplierSupplier" ToRole="ToRole_ProductSupplierFromProductSupplierToSupplierSupplier"/>
+            </EntityType>
+            <Association Name="ProductSupplierFromProductSupplierToSupplierSupplier">
+                <End Type="079dea30fa953de4133b9d39.ProductSupplier" Multiplicity="1" Role="FromRole_ProductSupplierFromProductSupplierToSupplierSupplier"/>
+                <End Type="079dea30fa953de4133b9d39.Supplier" Multiplicity="1" Role="ToRole_ProductSupplierFromProductSupplierToSupplierSupplier"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_ProductSupplierFromProductSupplierToSupplierSupplier">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_ProductSupplierFromProductSupplierToSupplierSupplier">
+                        <PropertyRef Name="___FK_4c64dc831ce8b064133f7a21_00028"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="DeliveryNote">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Name"/>
+                <Property Name="Status" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Status"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="CreationDate"/>
+                <NavigationProperty Name="ToItem" Relationship="079dea30fa953de4133b9d39.DeliveryNoteToItemDeliveryNoteItem" FromRole="FromRole_DeliveryNoteToItemDeliveryNoteItem" ToRole="ToRole_DeliveryNoteToItemDeliveryNoteItem"/>
+            </EntityType>
+            <Association Name="DeliveryNoteToItemDeliveryNoteItem">
+                <End Type="079dea30fa953de4133b9d39.DeliveryNote" Multiplicity="1" Role="FromRole_DeliveryNoteToItemDeliveryNoteItem"/>
+                <End Type="079dea30fa953de4133b9d39.DeliveryNoteItem" Multiplicity="*" Role="ToRole_DeliveryNoteToItemDeliveryNoteItem"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_DeliveryNoteToItemDeliveryNoteItem">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_DeliveryNoteToItemDeliveryNoteItem">
+                        <PropertyRef Name="___FK_4c64dc831ce8b064133f7a21_00036"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="DeliveryNoteItem">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="___FK_4c64dc831ce8b064133f7a21_00036" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_4c64dc831ce8b064133f7a21_00036"/>
+                <Property Name="TotalQuantity" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="DeliveredQuantity"/>
+                <Property Name="___FK_4c64dc831ce8b064133f7a21_00057" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_4c64dc831ce8b064133f7a21_00057"/>
+                <Property Name="TotalPackage" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="TotalInPackage"/>
+                <Property Name="AmountInPackage" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="AmountInPackage"/>
+                <NavigationProperty Name="ToProduct" Relationship="079dea30fa953de4133b9d39.DeliveryNoteItemToProductProduct" FromRole="FromRole_DeliveryNoteItemToProductProduct" ToRole="ToRole_DeliveryNoteItemToProductProduct"/>
+            </EntityType>
+            <Association Name="DeliveryNoteItemToProductProduct">
+                <End Type="079dea30fa953de4133b9d39.DeliveryNoteItem" Multiplicity="1" Role="FromRole_DeliveryNoteItemToProductProduct"/>
+                <End Type="079dea30fa953de4133b9d39.Product" Multiplicity="1" Role="ToRole_DeliveryNoteItemToProductProduct"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_DeliveryNoteItemToProductProduct">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_DeliveryNoteItemToProductProduct">
+                        <PropertyRef Name="___FK_4c64dc831ce8b064133f7a21_00057"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Stock">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="StockName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="DefaultName"/>
+                <Property Name="StockType" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="StockType"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
